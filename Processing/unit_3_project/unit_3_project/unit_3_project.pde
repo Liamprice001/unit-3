@@ -2,6 +2,7 @@ color red = #F50C0C;
 color grey = #B4B4B4;
 float sliderX;
 float thickness;
+color blue = #110BE0;
 color selectedcolor;
 void setup() {
 size(1000,1000);
@@ -23,13 +24,16 @@ circle(sliderX, 50 , 50);
 thickness = map(sliderX, 1000, 0, -60,105); 
 //buttons
 fill(red);
-square(50,50,50);
+rect(50,50,50,50);
+fill(blue);
+rect(10,50,50,50);
 } //<>//
 
    
 
 //squiggly lines
 void mouseDragged() {
+  stroke(selectedcolor);
   line(pmouseX, pmouseY, mouseX, mouseY);
 strokeWeight(thickness);
 //slider //<>//
@@ -38,8 +42,10 @@ strokeWeight(thickness);
 }
 }
 void mouseReleased() {
-if ( dist(100,100,mouseX, mouseY) < 50) {
+if (mouseX > 50 && mouseX < 100 && mouseY > 50 && mouseY < 100) {
  selectedcolor = red;
-
+if ( dist( 20,100, mouseX, mouseY) < 50){
+selectedcolor = blue;
+}
 }
 }
