@@ -1,14 +1,16 @@
-color red = #F50C0C;
+                                                                                                                                                                                                                  color red = #F50C0C;
 color grey = #B4B4B4;
 float sliderX;
 float thickness;
 color blue = #110BE0;
 color selectedcolor;
+int  toggle;
 void setup() {
 size(1000,1000);
 fill(118,113,113);
 sliderX = 500; //<>//
 thickness = 0; //<>//
+toggle = 1;
 }
 void draw() {
 // tool bar
@@ -26,9 +28,11 @@ thickness = map(sliderX, 1000, 0, -60,105);
 fill(red);
 rect(50,50,50,50);
 fill(blue);
-rect(10,50,50,50);
+rect(0,50,50,50);
+if (toggle > 0){
+guidelines();
 } //<>//
-
+}
    
 
 //squiggly lines
@@ -43,8 +47,9 @@ strokeWeight(thickness);
 }
 void mouseReleased() {
 if (mouseX > 50 && mouseX < 100 && mouseY > 50 && mouseY < 100) {
- selectedcolor = red;
-if ( dist( 20,100, mouseX, mouseY) < 50){
+ toggle = toggle * -1;
+  selectedcolor = red;
+if ( dist( 10,50, mouseX, mouseY) < 50){
 selectedcolor = blue;
 }
 }
