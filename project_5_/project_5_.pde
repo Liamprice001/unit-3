@@ -4,9 +4,11 @@ color black = #121713;
 float p1x, p1y, p1d;
 float p2x, p2y, p2d;
 boolean wkey, akey, skey, dkey, upkey, leftkey, downkey, rightkey;
+float ballx,bally,balld;
+float vx,vy;
 void setup() {
   size(1000, 1000, P2D);
-
+background(255);
   p1x = 50;
   p1y = height/2;
   p1d = 100;
@@ -14,6 +16,13 @@ void setup() {
   p2x = width-50;
   p2y = height/2;
   p2d= 100;
+
+ballx = width-50;
+bally=height/2;
+balld = 50;
+
+vx = 2;
+vy = -3;
 }
 void draw() {
   fill(red);
@@ -24,11 +33,19 @@ void draw() {
   textSize(15);
   text("player1", p1x, p1y);
   text("player2", p2x, p2y);
+//power up 
+fill(255,0,0);
+circle(ballx,bally,balld);
 //player 1 movement
 if (wkey) p1y = p1y -5;
 if (akey) p1x = p1x -5;
 if (skey) p1y = p1y + 5;
 if (dkey) p1x = p1x + 5;
+//player 2 movement 
+if (upkey) p2y = p2y - 5;
+if (leftkey) p2x = p2x - 5;
+if (downkey) p2y = p2y + 5;
+if (rightkey) p2x = p2x + 5;
 }
 void keyPressed(){
   if (key == 'w') wkey = true;
