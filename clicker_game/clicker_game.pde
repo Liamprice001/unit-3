@@ -6,6 +6,8 @@ final int gameover = 3;
 //target variables
 float x, y, d;
 float vx, vy;
+int score;
+int lives;
 void setup() {
   size(800, 800);
   mode = intro;
@@ -15,6 +17,8 @@ mode = intro;
 //target initialization
 x= width/2;
 y=height/2;
+score = 0;
+lives = 3;
 d=100;
 vx=random(-5,5);
 vy=random(-5,5);

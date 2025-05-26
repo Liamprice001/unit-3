@@ -15,6 +15,9 @@ if (y < 0 || y > height) {
 }
 }
 void gameclicks(){
-if (true){
+if(dist(mouseX,mouseY,x,y)<50){
+score = score + 1;
+}
+  if (true){
 }
 }
