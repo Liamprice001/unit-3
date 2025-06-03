@@ -1,3 +1,14 @@
+import ddf.minim.*;
+import ddf.minim.analysis.*;
+import ddf.minim.effects.*;
+import ddf.minim.signals.*;
+import ddf.minim.spi.*;
+import ddf.minim.ugens.*;
+
+
+
+
+
 int mode;
 final int intro = 0;
 final int game = 1;
@@ -6,33 +17,38 @@ final int gameover = 3;
 //target variables
 float x, y, d;
 float vx, vy;
-int score;
-int lives;
+int score, lives;
+//soundvariables
+AudioPlayer theme,coin,bump,gameover;
+
 void setup() {
   size(800, 800);
   mode = intro;
-textAlign(CENTER,CENTER);
-rectMode(CENTER);
-mode = intro;
-//target initialization
-x= width/2;
-y=height/2;
-score = 0;
-lives = 3;
-d=100;
-vx=random(-5,5);
-vy=random(-5,5);
+  textAlign(CENTER, CENTER);
+  rectMode(CENTER);
+  mode = intro;
+  //target initialization
+  x= width/2;
+  y=height/2;
+  score = 0;
+  lives = 3;
+  d=100;
+  vx=random(-5, 5);
+  vy=random(-5, 5);
+//minim
+minim = new Minim(this);
+theme = minim.loadFile("retrocoin.mp3");
 }
 void draw() {
   if (mode == intro) {
-  intro();
+    intro();
   } else if ( mode==game) {
-game();
+    game();
   } else if (mode == pause) {
- pause();
+    pause();
   } else if (mode == gameover) {
- gameover();
+    gameover();
   } else {
-  println("Error: Mode = " + mode);
+    println("Error: Mode = " + mode);
   }
 }
