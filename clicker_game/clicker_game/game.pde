@@ -21,8 +21,12 @@ void game() {
 void gameclicks() {
   if (dist(mouseX, mouseY, x, y)<50) {
     score = score + 1;
-  } else {
+ coin.rewind();
+ coin.play();
+} else {
     lives = lives - 1;
+   bump.rewind();
+    bump.play();
     if (lives == 0) mode = gameover;
   }
   if (true) {
