@@ -1,11 +1,11 @@
+
+
 import ddf.minim.*;
 import ddf.minim.analysis.*;
 import ddf.minim.effects.*;
 import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
-
-
 
 
 
@@ -19,7 +19,8 @@ float x, y, d;
 float vx, vy;
 int score, lives;
 //soundvariables
-AudioPlayer theme,coin,bump,gameover;
+Minim minim;
+AudioPlayer theme, coin, bump, gg, gamemusic;
 
 void setup() {
   size(800, 800);
@@ -35,9 +36,13 @@ void setup() {
   d=100;
   vx=random(-5, 5);
   vy=random(-5, 5);
-//minim
-minim = new Minim(this);
-theme = minim.loadFile("retrocoin.mp3");
+  //minim
+  minim = new Minim(this);
+  theme = minim.loadFile("intro.mp3");
+  coin = minim.loadFile("retrocoin.mp3");
+  bump = minim.loadFile("bump.mp3");
+  gg = minim.loadFile("lose.mp3");
+  gamemusic= minim.loadFile("gamemusic.mp3");
 }
 void draw() {
   if (mode == intro) {
