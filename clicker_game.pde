@@ -19,6 +19,7 @@ final int options = 4;
 float x, y, d;
 float vx, vy;
 int score, lives;
+int highScore;
 //soundvariables
 Minim minim;
 AudioPlayer theme, coin, bump, gg, gamemusic;
@@ -32,6 +33,7 @@ void setup() {
   //target initialization
   x= width/2;
   y=height/2;
+  
   score = 0;
   lives = 3;
   d=100;
